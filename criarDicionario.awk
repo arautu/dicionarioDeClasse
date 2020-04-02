@@ -60,11 +60,22 @@ END {
   print "Número de métodos: " cntAtributos;
 
   # Dicionário
-  print nomeDoPackage"."nomeDaClasse"="
+  # Se foi passado nome do arquivo como argumento do script, imprime no arquivo. 
+  if (vocabularioDeClasse) {
+    print nomeDoPackage"."nomeDaClasse"=" > vocabularioDeClasse
 
-  asort(nomeDosAtributos)
-  for (i in nomeDosAtributos) {
-    print nomeDoPackage"."nomeDaClasse"."nomeDosAtributos[i]"="
+    asort(nomeDosAtributos)
+    for (i in nomeDosAtributos) {
+      print nomeDoPackage"."nomeDaClasse"."nomeDosAtributos[i]"=" > vocabularioDeClasse
+    }
+  }
+  else {
+    print nomeDoPackage"."nomeDaClasse"="
+
+    asort(nomeDosAtributos)
+    for (i in nomeDosAtributos) {
+      print nomeDoPackage"."nomeDaClasse"."nomeDosAtributos[i]"="
+    }
   }
   printf "\n"
 }
